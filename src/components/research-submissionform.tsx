@@ -17,7 +17,7 @@ type ZKP = {
 export function ResearchSubmissionForm({
   onSubmission,
 }: {
-  onSubmission: (hash: string, proof: ZKP) => void; 
+  onSubmission: (hash: string, proof: ZKP) => void;
 }) {
   const [researchContent, setResearchContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,14 +51,15 @@ export function ResearchSubmissionForm({
       setIsSubmitting(false);
     }
   };
+
   const submitToBlockchain = async (zkp: ZKP) => {
-    console.log("Simulating blockchain submission with ZKP:", zkp); 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    console.log("Simulating blockchain submission with ZKP:", zkp);
+    await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate delay
     return "simulated-transaction-hash";
   };
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className="w-full max-w-md mx-4 sm:mx-0">
       <CardHeader>
         <CardTitle>Submit Research</CardTitle>
         <CardDescription>Upload your research content to authenticate it using ZK-Proofs.</CardDescription>
@@ -66,7 +67,7 @@ export function ResearchSubmissionForm({
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <Label htmlFor="researchContent" className="mb-4">Research Content</Label>
+            <Label htmlFor="researchContent" className="mb-2 sm:mb-4">Research Content</Label>
             <Input
               id="researchContent"
               type="text"
@@ -79,7 +80,7 @@ export function ResearchSubmissionForm({
           <Button 
             type="submit" 
             disabled={isSubmitting} 
-            className="cursor-pointer disabled:cursor-not-allowed"
+            className="w-full sm:w-auto cursor-pointer disabled:cursor-not-allowed"
           >
             {isSubmitting ? <ClipLoader size={20} color="#ffffff" /> : "Submit Research"}
           </Button>

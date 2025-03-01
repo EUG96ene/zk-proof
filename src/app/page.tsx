@@ -14,8 +14,10 @@ export default function Home() {
   const [zkp, setZkp] = useState<ZKP | null>(null);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-gray-50">
-      <h1 className="text-3xl font-bold mb-8">ZK-Proof Research Authentication Demo</h1>
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12 lg:p-24 bg-gray-50">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8 text-center">
+        ZK-Proof Research Authentication Demo
+      </h1>
       <ResearchSubmissionForm
         onSubmission={(hash, proof) => {
           setTxHash(hash);

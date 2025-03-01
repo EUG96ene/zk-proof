@@ -20,7 +20,7 @@ export function PeerReview({ txHash, zkp }: { txHash: string; zkp: ZKP | null })
   };
 
   return (
-    <Card className="w-full max-w-md mt-8">
+    <Card className="w-full max-w-md mx-4 sm:mx-0 mt-8">
       <CardHeader>
         <CardTitle>Peer Review</CardTitle>
         <CardDescription>Verify and approve the submitted research.</CardDescription>
@@ -29,7 +29,7 @@ export function PeerReview({ txHash, zkp }: { txHash: string; zkp: ZKP | null })
         <p className="text-sm">Transaction Hash: {txHash}</p>
       </CardContent>
       <CardFooter>
-        <Button onClick={handleApprove} className="cursor-pointer disabled:cursor-not-allowed">
+        <Button onClick={handleApprove} className="w-full sm:w-auto cursor-pointer disabled:cursor-not-allowed">
           Approve Research
         </Button>
       </CardFooter>
