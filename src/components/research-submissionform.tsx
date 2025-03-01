@@ -51,9 +51,9 @@ export function ResearchSubmissionForm({
       setIsSubmitting(false);
     }
   };
-  const submitToBlockchain = async (zkp: ZKP) => { 
-    console.log("Simulating blockchain submission...");
-    await new Promise((resolve) => setTimeout(resolve, 2000)); 
+  const submitToBlockchain = async (zkp: ZKP) => {
+    console.log("Simulating blockchain submission with ZKP:", zkp); 
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     return "simulated-transaction-hash";
   };
 

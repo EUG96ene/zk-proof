@@ -22,7 +22,7 @@ export default function Home() {
           setZkp(proof);
         }}
       />
-      {txHash && <PeerReview txHash={txHash} zkp={zkp} />}
+      {txHash && zkp && <PeerReview txHash={txHash} zkp={zkp} />}
     </main>
   );
 }

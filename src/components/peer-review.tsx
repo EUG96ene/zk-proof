@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
@@ -9,8 +8,13 @@ type ZKP = {
   publicSignals: string[];
 };
 
-export function PeerReview({ txHash, zkp }: { txHash: string; zkp: ZKP }) {
+export function PeerReview({ txHash, zkp }: { txHash: string; zkp: ZKP | null }) {
   const handleApprove = () => {
+    if (!zkp) {
+      console.error("ZKP is null. Cannot approve research.");
+      return;
+    }
+
     console.log("Research approved. Tokens rewarded.");
     console.log("ZKP:", zkp);
   };
