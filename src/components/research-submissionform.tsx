@@ -9,10 +9,15 @@ import { generateHash } from "@/lib/hash";
 import { ClipLoader } from "react-spinners";
 import { generateZKP } from "@/lib/zkp";
 
+type ZKP = {
+  proof: string;
+  publicSignals: string[];
+};
+
 export function ResearchSubmissionForm({
   onSubmission,
 }: {
-  onSubmission: (hash: string, proof: any) => void;
+  onSubmission: (hash: string, proof: ZKP) => void; 
 }) {
   const [researchContent, setResearchContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,8 +51,7 @@ export function ResearchSubmissionForm({
       setIsSubmitting(false);
     }
   };
-
-  const submitToBlockchain = async (zkp: any) => {
+  const submitToBlockchain = async (zkp: ZKP) => { 
     console.log("Simulating blockchain submission...");
     await new Promise((resolve) => setTimeout(resolve, 2000)); 
     return "simulated-transaction-hash";

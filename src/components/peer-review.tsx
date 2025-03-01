@@ -1,9 +1,15 @@
+
 "use client";
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-export function PeerReview({ txHash, zkp }: { txHash: string; zkp: any }) {
+type ZKP = {
+  proof: string;
+  publicSignals: string[];
+};
+
+export function PeerReview({ txHash, zkp }: { txHash: string; zkp: ZKP }) {
   const handleApprove = () => {
     console.log("Research approved. Tokens rewarded.");
     console.log("ZKP:", zkp);
@@ -19,7 +25,9 @@ export function PeerReview({ txHash, zkp }: { txHash: string; zkp: any }) {
         <p className="text-sm">Transaction Hash: {txHash}</p>
       </CardContent>
       <CardFooter>
-        <Button onClick={handleApprove}  className="cursor-pointer disabled:cursor-not-allowed">Approve Research</Button>
+        <Button onClick={handleApprove} className="cursor-pointer disabled:cursor-not-allowed">
+          Approve Research
+        </Button>
       </CardFooter>
     </Card>
   );
